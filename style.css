@@ -24,6 +24,7 @@ body{
     background-color: rgb(166, 78, 247);
     padding: 10px;
     line-height: 35px;
+    margin: 20px 0px;
 }
 h4{
     font-size: 22px;
@@ -37,7 +38,7 @@ h5{
 
 
 .box{
-    position: absolute;
+    position: fixed;
     border-radius: 50%;
     z-index: -2;
 
@@ -71,7 +72,7 @@ h5{
     height: 50px;
     width: 50px;
     background-color: rgba(20, 117, 220, 0.856);
-    bottom: 5%;
+    bottom: 1%;
     right: 10%;
 }
 
@@ -104,7 +105,7 @@ h5{
     .box2{
         height: 100px;
         width: 100px;
-        top: 40%;
+        top: 33%;
         left: 65%;
     }
 
@@ -112,6 +113,7 @@ h5{
         height: 80px;
         width: 80px;
         left: 20%;
+        top: 75%;
         z-index: -1;
     }
 }
