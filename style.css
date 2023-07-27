@@ -10,12 +10,14 @@ body{
     font-family: sans-serif;
     background:linear-gradient(45deg ,rgb(191, 158, 243),rgba(27, 62, 239, 0.664)) ;
     padding: 10px;
+    
 }
 
 .container{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: relative;
 }
 .quest-card{
     /* height: 100px; */
@@ -78,7 +80,7 @@ h5{
 
 
 .filter{
-    height: 100vh;
+    min-height: 100vh;
     position: absolute;
     width: 100%;
     top: 0;
