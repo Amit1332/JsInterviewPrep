@@ -1,0 +1,156 @@
+1. differences between - some and every  -
+ans - some and every both returns the Boolean value, in case of some it will check if the any one value satisfy the given condition then it will return true. And in case of every it will check if all values are satisfy the given condition then and then only it will return true .
+
+every - 
+let str =[1,3,4,5,6,7]
+let arr =str.every(n=> n%2==0) 
+console.log(arr)
+
+some - 
+let str =[1,3,4,5,6,7]
+let arr =str.every(n=> n%2==0)
+console.log(arr)
+
+
+
+2. differ  - find and filter
+ans -
+ a .find method returns the first value that match from a collection once  it matches the value it will not check remaining value
+ let obj = [
+    {name:"amit",age:33},
+      {name:"amit",age:32},
+        {name:"amit",age:31}
+]
+
+
+let bb = obj.find((n)=> n.age>31)
+console.log(bb)
+ b. filter method return the matched all values in an array  from the collection 
+let obj = [
+    {name:"amit",age:33},
+      {name:"amit",age:32},
+        {name:"amit",age:31}
+]
+
+
+let bb = obj.filter((n)=> n.age>31)
+console.log(bb)
+
+
+3. closure - 
+Ans -  Closures are used in JavaScript to create private variables and methods, which are not accessible from
+ outside the closure. when a function uses variables from outside of its own scope, those variables are "closed over"
+      by    the function and can still be accessed even after the function has finished executing.
+
+
+
+4. callback hell - The phenomenon which happens when we nest multiple callbacks within a function is called a callback hell. The shape of the resulting code structure resembles a pyramid and hence callback hell is also called the “pyramid of the doom”. It makes the code very difficult to understand and maintain.
+function demo1(callback){
+    console.log("1")
+    callback()
+}
+function demo2(callback){
+    console.log("2")
+    callback()
+}
+function demo3(callback){
+    console.log("3")
+    callback()
+}
+function demo4(){
+    console.log("4")
+    
+}
+
+
+demo1(()=>{
+    demo2(()=>{
+        demo3(()=>{
+            demo4()
+        })
+    })
+})
+
+
+
+
+5 .promise over callback hell - as well as known as promise chaining
+
+function printpromis(number){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            res(number)
+        },time)
+    })
+}
+printpromise(1)
+.then(()=> printpromise(2))
+.then(()=> printpromise(3))
+.then(()=> printpromise(4))
+.then(()=> printpromise(5))
+
+
+
+
+6. print 1 to 6  in duration 1 1 sec using single promise
+
+a . using for loop and promise
+// function printpromis(number ,time){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             res(number)
+//         },time)
+//     })
+// }
+
+// let aa  = Promise.resolve()
+// for(let i=1; i<7; i++){
+//     printpromis(i ,i*1000).then((result)=>{
+//         console.log(result)
+//     })
+// }
+
+
+b. using callbackhell print 1 to 4
+function demo1(number ,callback){
+    console.log(number)
+    callback()
+}
+function demo2(number,callback){
+    console.log(number)
+    callback()
+}
+function demo3(number,callback){
+    console.log(number)
+    callback()
+}
+function demo4(number){
+    console.log(number)
+    
+}
+
+
+demo1(1,()=>{
+    demo2(2,()=>{
+        demo3(3,()=>{
+            demo4(4)
+        })
+    })
+})
+
+
+
+c. using promise chaining print 1 to 6
+function printpromis(number){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            res(number)
+        },time)
+    })
+}
+printpromise(1)
+.then(()=> printpromise(2))
+.then(()=> printpromise(3))
+.then(()=> printpromise(4))
+.then(()=> printpromise(5))
+
