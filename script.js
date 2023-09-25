@@ -58,3 +58,17 @@ function setData(){
 
    })
 }
+
+
+var a=5
+console.log(a)
+abc()
+function abc(){
+   var a =10
+   console.log(a);
+   function def() {
+      console.log(a);
+   }
+   def()
+}
+

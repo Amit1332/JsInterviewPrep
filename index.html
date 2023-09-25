@@ -41,10 +41,10 @@
 
 1 is Number and true is Boolean
 , it compares value and datatypes
-    console.log(1===true)  - true  
+    console.log(1===true)  - false  
 0 is Number and false is Boolean
  it compares value and datatypes
-    console.log(0===false) - true  
+    console.log(0===false) - false 
 
  exp 3-  non primitive datatype 
  Objec , Array ,Regex.
@@ -55,7 +55,7 @@
  a===b   - false
 
  Object - 
- let a=[] , b = []
+ let a={} , b = {}
  a==b    - false
  a===b   - false
 </pre>
@@ -677,10 +677,9 @@ printpromise(1)
 
        <div class="quest-card">
         <h4>Question 21 -  What are closures? Give an example of closure.</h4>
-        <h5>Ans - Closures are used in JavaScript to create private variables and methods, which are not accessible from
-            outside the closure. when a function uses variables from outside of its own scope, those variables are "closed over"
-                 by    the function and can still be accessed even after the function has finished executing.
-                
+        <h5>Ans - Closures is the phenomena in which the if in inner function  a variable are accessing the value but variable is not declared and initialize
+            in their scope then it will check  variable to access in the parent scope if the variable can access then that phenomena is called closure
+            
                 <pre>
                     function myfunc(){
                         const a = 5  // closure value take
@@ -808,50 +807,14 @@ console.log(sum); // 10
         
         
         <pre>
-            //parent class
-
-class Animal{
-
-    constructor(name,age){
-
-        this.name = name;
-
-        this.age = age;
-
-    }
-
-    demo(){
-
-        console.log(this.name,this.age);
-
-    }
-
-}
-
-//inherit class
-
-class Dog extends Animal{
-
-    
-
-}
-
-let value = new Dog('tommy',11);
-
------- use proto keyword---
-function parent(name,age){
-
-    this.name = name;
-
-    this.age = age;
-
-}
-
-let value = new parent("Ashutosh",43);
-
-value._proto_.child = "Debasis";
-
-console.log(value.name,value.age,value.child)
+            function demo(name){
+                this.name= name
+            }
+            
+            let two = new demo("Amit")
+            let three = new demo("Golu")
+            console.log(two)
+            console.log(three)
         </pre>
         
         
@@ -882,7 +845,9 @@ console.log(value.name,value.age,value.child)
 
        <div class="quest-card">
         <h4>Question 29- What is prototype chain.</h4>
-        <h5>Ans - This code defines the prototype chaining untill get null prototype 
+        <h5>Ans - This code defines the prototype chaining untill get null prototype <br>
+            Each object has a private property which holds a link to another object called its prototype.
+             That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. By definition, null has no prototype, and acts as the final link in this prototype chain
             <pre>
                 let parent = {
                     name:'amit',
@@ -946,7 +911,7 @@ console.log(value.name,value.age,value.child)
        
 
        <div class="quest-card">
-        <h4>Question 26- fetch api and render it on the screen in list format.</h4>
+        <h4>Question 27- fetch api and render it on the screen in list format.</h4>
         <h5 id="list">Ans -
             <br>
             
@@ -955,7 +920,7 @@ console.log(value.name,value.age,value.child)
 
 
        <div class="quest-card">
-        <h4>Question 26- fetch api and render it on the screen in table format.</h4>
+        <h4>Question 28- fetch api and render it on the screen in table format.</h4>
         <h5 >Ans -
             <table border="2px"  >
                 <thead align="left" >
@@ -976,7 +941,46 @@ console.log(value.name,value.age,value.child)
 
 
       
+       <div class="quest-card">
+        <h4>Question 29- class inheritance with class constructor.</h4>
+        <h5 >Ans -
+           <pre>
 
+            class Animal{
+                constructor(name){
+                    this.name = name
+                }
+                
+                
+                makeSound(){
+                    console.log("Animal")
+                }
+            }
+            
+            
+            class Dog extends Animal{
+                constructor(name,breed){
+                    super(name)
+                    this.breed= breed
+                }
+                makeSound(){
+                    console.log("woof")
+                }
+            }
+            
+            class Labrador extends Dog{
+                constructor(name,breed,leg){
+                    super(name,breed)
+                    this.leg = leg
+                }
+            }
+            const myDog = new Dog("max","labrador")
+console.log(myDog)
+myDog.makeSound()
+
+           </pre>
+        </h5>
+       </div>
      
 
       
@@ -994,6 +998,76 @@ const baz = 0 ?? 42;
 console.log(baz);
 // Expected output: 0
 
+            </pre>
+        </h5>
+
+
+    </div>
+
+
+
+
+    <div class="quest-card">
+        <h4>Question 31- pass by value and pass by reference</h4>
+        <h5>Ans - .
+            <pre>
+                function abc(a,obj){
+                    a=100
+                    obj.value=100
+                    obj={}
+                }
+                
+                let number =10
+                let obj ={value:10}
+                abc(number,obj)
+                
+                console.log(number)
+                console.log(obj.value)
+
+
+
+
+                ex2 - 
+
+                function abc(x){
+                    x=x+5
+                    console.log("inside ",x)
+                }
+                
+                let a =10
+                abc(a)
+                 console.log("outside " ,a)
+                 
+                 
+                 function def(obj){
+                     obj.key= "new"
+                     console.log("inside", obj.key)
+                     
+                 }
+                 
+                 const obj = {key:"old"}
+                 def(obj)
+                 
+                   console.log("outside", obj.key)
+
+
+
+                   ex2 - 
+                   let a =5
+let b=a
+
+b=6
+console.log(b)
+console.log(a)
+
+
+let obj = {name:"Amit"}
+let obj2 = obj
+
+obj2.age= 23
+
+console.log(obj)
+console.log(obj2)
             </pre>
         </h5>
 
