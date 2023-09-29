@@ -475,18 +475,18 @@ test.call({...a,...b})
             promise over callback hell - as well as known as promise chaining
 
 <pre>
-    function printpromis(number){
+    function printpromise(number){
         return new Promise((res,rej)=>{
             setTimeout(()=>{
-                res(number)
-            },time)
+              console.log(number)
+            },1000)
         })
     }
     printpromise(1)
-    .then(()=> printpromise(2))
-    .then(()=> printpromise(3))
-    .then(()=> printpromise(4))
-    .then(()=> printpromise(5))
+    .then(printpromise(2))
+    .then(printpromise(3))
+    .then(printpromise(4))
+    .then(printpromise(5))
 </pre>
 
         </h5>
@@ -494,23 +494,17 @@ test.call({...a,...b})
 
        <div class="quest-card">
         <h4>Question 15- What are promises and why do we need them?.</h4>
-        <h5>Ans - JavaScript Promise are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code.
-             Prior to promises events and callback functions were used but they had limited functionalities and created unmanageable code. Multiple 
-            callback functions would create callback hell that leads to unmanageable code. Promises are used to handle asynchronous operations in JavaScript. 
-        
-            <ul>
-                <li>The promise constructor takes only one argument which is a callback function</li>
-                <li>The callback function takes two arguments, resolve and reject</li>
-                <ul>
-                    <li>Perform operations inside the callback function and if everything went well then call resolve.</li>
-                    <li>If desired operations do not go well then call reject.
-                    </li>
-                </ul>
-            </ul>
-        
+        <h5>Ans - Javascript promises is a method is used to handle the asynchronous task   
             There are three states: 
             1 pending  2 . Fullfilled  3 . Rejected
 
+            1.pending state is the default state   2nd. is fullfilled - when the promise resolved it get some result 
+            then fullfilled state and 3rd. is  Rejected state when promise does not fullfill or not satisfy the condition then it will get Rejection state
+
+            <br>
+            to handle this promise have two methods  1. is .then() and 2. is .catch() method  .then() method is used to handle the promises and return a result what will be fullfilled or rejected 
+            and catch method is used to handle the unexpected error to prevent stop execution context 
+            we use for error handling 
             <pre>
                 function demo(num){
                     return new Promise((res,rej)=>{
@@ -614,18 +608,18 @@ demo1(1,()=>{
 
 
 c. using promise chaining print 1 to 6
-function printpromis(number){
+function printpromise(number){
     return new Promise((res,rej)=>{
         setTimeout(()=>{
-            res(number)
-        },time)
+          console.log(number)
+        },1000)
     })
 }
 printpromise(1)
-.then(()=> printpromise(2))
-.then(()=> printpromise(3))
-.then(()=> printpromise(4))
-.then(()=> printpromise(5))
+.then(printpromise(2))
+.then(printpromise(3))
+.then(printpromise(4))
+.then(printpromise(5))
 
     </pre>
 </h5>
@@ -1074,8 +1068,58 @@ console.log(obj2)
 
     </div>
 
+    <div class="quest-card">
+        <h4>Question 31- Local storage and session storage</h4>
+        <h5>Ans - Local Storage -  Local Storage is a type of web storage that allows JavaScript to store and access data right in the browser. The data in Local Storage is stored in key/value pairs. The key is like the name of the data, and the value is like the actual data itself. 
+           <h3> it allows only 10MB of data to be stored.</h3>
+            <br>
+            Local storage has 4 methods:
+            <br>
+            <ul>
+                <li>localStorage.setItem(key, value)</li>
+                <li>localStorage.getItem(key)</li>
+                <li>localStorage.removeItem(key)</li>
+                <li>localStorage.clear()</li>
+            </ul>
+
+            Session Storage - Session Storage is a type of web storage that allows web applications to store data locally within the user's browser. Unlike cookies, data stored in session storage is specific to the site on which it was created and data is not shared with other site
+
+            <ul>
+                <li>Session Storage data is only available to the site that created it.
+
+                </li>
+                <li>Session Storage data is not shared with other sites.
+
+                </li>
+                <li>Session Storage data is specific to the browser tab in which it was created.
+
+                </li>
 
 
+
+            </ul>
+            <h3> it allows only 5MB of data to be stored.</h3>
+
+            <br>
+            The sessionStorage object has two methods - 
+            <br>
+
+            <ul>
+                <li>sessionStorage.setItem("name", "tutorialsPoint");</li>
+                <li>var name = sessionStorage.getItem("name");</li>
+            </ul>
+
+
+
+            Cookies -  A cookie is a small piece of data that is stored on the user's computer. Cookies are used to store information about the user such as their name, password, and preferences.
+            <br>
+           <h3> The storage capacity is limited to 4KB of data.
+            .</h3>
+
+            <ul>
+                <li>document.cookie = "name=tutorialsPoint";</li>
+                <li>var user = document.cookie.getItem("name");</li>
+            </ul>
     <script src="script.js"></script>
 </body>
 </html>
